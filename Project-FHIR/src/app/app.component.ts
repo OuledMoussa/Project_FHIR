@@ -17,4 +17,11 @@ export class AppComponent {
           console.log(value);
       });
   }
+
+  getAppointment() {
+    this.dataService.getAppointment()
+      .subscribe((value ) => {
+          console.log(value);
+      });
+  }
 }
