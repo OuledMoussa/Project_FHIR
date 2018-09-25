@@ -5,10 +5,25 @@
         <th>Title</th>
         <th>Commence à</th>
         <th>Finit à</th>
+        <th>Réponse</th>
       </tr>
     </thead>
     <tbody>
-    
+        <div *ngFor="let rdv of listRDV">
+            <tr>
+                <td>Valeurtitre</td>
+                <td>ValeurDeb</td>
+                <td>ValeurFin</td>
+                <td>
+                  <div class="col-md-2">
+                    <button type="button" class="btn btn-primary">Valider</button>
+                  </div>
+                  <div class="col-md-1">
+                    <button type="button" class="btn btn-primary">ABS</button>
+                  </div>
+                </td>
+              </tr>
+        </div>
     </tbody>
   
   </table>
