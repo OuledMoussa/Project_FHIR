@@ -3,6 +3,10 @@
     margin-right:0px;
 }
 
+.container {
+    width: auto;
+}
+
 #wrapper {
     padding-left: 70px;
     transition: all .4s ease 0s;
@@ -36,6 +40,7 @@
 }
 #wrapper.active {
     padding-left: 150px;
+    
 }
 #wrapper.active #sidebar-wrapper {
     left: 150px;
