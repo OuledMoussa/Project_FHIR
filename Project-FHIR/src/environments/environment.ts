@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'https://fhir.eole-consulting.io/api/',
+  practId: '5ba8b7742eef950010bbb5b3'
 };
 
 /*
