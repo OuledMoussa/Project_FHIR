@@ -9,8 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { PractitionerComponent } from './practitioner/practitioner.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { ObservationComponent } from './observation/observation.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MatCardModule } from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
+
 
 const appRoutes: Routes = [
   { path: 'pract', component: PractitionerComponent },
@@ -30,7 +33,11 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   providers: [
     RouterModule
