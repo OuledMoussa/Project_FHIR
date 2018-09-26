@@ -1,6 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../../services/data-service.service';
+<<<<<<< HEAD
 import { environment } from 'src/environments/environment.prod';
+=======
+import {MatExpansionModule} from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
+>>>>>>> c23d9c0f3e6facd6c0750f15c17dce9d9d41e1b0
 @Component({
   selector: 'app-observation',
   templateUrl: './observation.component.html',
@@ -62,6 +73,7 @@ export class ObservationComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getPatients().subscribe((value) => {
+<<<<<<< HEAD
       console.log(value);
       this.patientsArray = value;
     });
@@ -77,5 +89,26 @@ export class ObservationComponent implements OnInit {
     const min = Math.ceil(100000000000000);
     const max = Math.floor(1000000000000000);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+=======
+        this.patientsArray = value });
+  }
+  checker = 0;
+  showGroup(x) {
+    switch(x){
+      case 'tryg':
+        console.log("test");
+        this.checker = 1;
+        break;
+      case 'chol':
+        this.checker =  2;
+        break;
+      case 'gen':
+        this.checker =  3;
+        break;
+      default:
+        this.checker =  0;
+        break;
+    }
+>>>>>>> c23d9c0f3e6facd6c0750f15c17dce9d9d41e1b0
   }
 }
