@@ -19,11 +19,11 @@ import { Validators } from '@angular/forms';
 export class ObservationComponent implements OnInit {
   patientsArray: any;
   selectedPatient: any;
-
+  modelTryg: any;
   patientControl = new FormControl('patientControl', [Validators.required]);
   catControl = new FormControl('catControl', [Validators.required]);
   commentaryControl = new FormControl('commentaryControl', [Validators.required]);
-
+  codeValue: any;
 
 
 
@@ -31,6 +31,7 @@ export class ObservationComponent implements OnInit {
     'id': null,
     'resourceType': 'Observation',
     'status': 'final',
+    'comment': '',
     'code': {
       'coding': [
         {
@@ -107,11 +108,13 @@ export class ObservationComponent implements OnInit {
     this.newObs.issued = now.toISOString();
     this.newObs.subject.reference = 'Patient/' + this.patientControl.value;
     this.newObs.performer[0].reference = 'Practitioner/' + environment.practId;
-    this.newObs.code.text = this.commentaryControl.value;
-    console.log(this.newObs);
-/*     this.dataService.createObs(this.newObs);
- */  }
-
+    this.newObs.comment = this.commentaryControl.value;
+    this.newObs.code.coding[0].code = this.codeValue;
+    this.dataService.createObs(this.newObs);
+  }
+  setValueCode(value: any) {
+    this.codeValue= value;
+  }
 
   showGroup(x) {
     switch (x) {
