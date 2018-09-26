@@ -1,7 +1,7 @@
 <form>
     <div class="form-group wrapper">
       <div class="one">
-      <select id="patientID"  >
+      <select id="patientID" [formControl]="patientControl" required>
         <option  *ngFor="let pat of patientsArray" [value]="pat.id" >{{pat.name[0].family}} {{pat.name[0].given[0]}}</option>
       </select>
       <mat-accordion>
@@ -9,7 +9,7 @@
           <mat-expansion-panel-header>
             Catégories
           </mat-expansion-panel-header>
-          <mat-button-toggle-group #group="matButtonToggleGroup">
+          <mat-button-toggle-group #group="matButtonToggleGroup" [formControl]="catControl" required>
             <mat-button-toggle value="tryg" (change)="showGroup('tryg')">
               Triglycéride
             </mat-button-toggle>
@@ -51,8 +51,8 @@
     </div>
     <div class="two">
       <label for="exampleFormControlTextarea1">Commentaire</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1"></textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" [formControl]="commentaryControl"></textarea>
     </div>
     </div>
-    <button type="button" class="btn btn-primary">Valider</button>
+    <button type="button" class="btn btn-primary" (click)="createObs()" >Valider</button>
 </form>
