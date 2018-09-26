@@ -4,6 +4,7 @@ import { DataServiceService } from '../services/data-service.service';
 import { RouterModule, Routes } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PractitionerComponent } from './practitioner/practitioner.component';
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     ObservationComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     MatButtonModule,
     MatFormFieldModule,

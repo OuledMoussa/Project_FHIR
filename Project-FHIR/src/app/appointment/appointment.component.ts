@@ -15,7 +15,7 @@ import {
   addHours
 } from 'date-fns';
 import { Subject } from 'rxjs';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
   CalendarEvent,
   CalendarEventAction,
@@ -45,11 +45,11 @@ const colors: any = {
 })
 
 export class AppointmentComponent implements OnInit {
-  appointmentsArray : any;
-  constructor(private dataService: DataServiceService) { }
-
   @ViewChild('modalContent')
   modalContent: TemplateRef<any>;
+  appointmentsArray : any;
+  
+  constructor(private dataService: DataServiceService, private modal: NgbModal) { }
 
   view: CalendarView = CalendarView.Week;
 
@@ -70,8 +70,8 @@ export class AppointmentComponent implements OnInit {
 
   events: CalendarEvent[] = [
     {
-      start: new Date('2018-09-25T05:00:00'),
-      end: new Date('2018-09-25T07:00:00'),
+      start: new Date('2018-09-25T07:00:00'),
+      end: new Date('2018-09-25T09:00:00'),
       title: 'An Exemple of Appoitment',
       color: colors.red,
       actions: this.actions
@@ -93,6 +93,12 @@ export class AppointmentComponent implements OnInit {
       }
     }
   }
+
+  handleEvent(action: string, event: CalendarEvent): void {
+    this.modalData = { event, action };
+    this.modal.open(this.modalContent, { size: 'lg' });
+  }
+
 
   ngOnInit(){
     this.dataService.getAppointment().subscribe((value) => {
