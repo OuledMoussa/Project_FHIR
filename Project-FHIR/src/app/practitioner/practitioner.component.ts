@@ -21,6 +21,7 @@ export class PractitionerComponent implements OnInit {
   ngOnInit() {
     this.dataService.getPractData()
     .subscribe((value ) => {
+<<<<<<< Updated upstream
         this.data = value;
         this.nom = value.name[0].family;
         this.prenom = value.name[0].given;
@@ -28,6 +29,10 @@ export class PractitionerComponent implements OnInit {
         this.adresse_ville = value.address[0].city;
         this.cp = value.address[0].postalCode;
         console.log(value);
+=======
+        //this.data = value;
+        //this.nom = value.name[0].family;
+>>>>>>> Stashed changes
     });
   }
 
@@ -35,8 +40,14 @@ export class PractitionerComponent implements OnInit {
   this.dataService.getPractData()
     .subscribe((value ) => {
         this.data = value;
+<<<<<<< Updated upstream
         this.nom = value[2].name[0].family;
         /* this.prenom = value.name[0].given; */
+=======
+      //  this.nom = value.name[0].family;
+        /* this.prenom = value.name[0].given; */
+        //console.log(value.name[0].family);
+>>>>>>> Stashed changes
     });
   }
 
