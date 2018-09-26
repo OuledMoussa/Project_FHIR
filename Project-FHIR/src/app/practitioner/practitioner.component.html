@@ -1,33 +1,26 @@
-<div class="row">
-    <div class="col-md-12">
-      <h2 class="card-title">Information</h2>
+<mat-card>
+  <mat-card-header fxLayout="row" fxLayoutGap="5%">
+    <mat-card-title>Votre Profil</mat-card-title>
+  </mat-card-header>
 
-      <!-- Nom -->
-
-      <div class="col-md-1">
-        <label for="nom" class="col-form-label">Nom</label>
-      </div>
-      <div class="col-md-11">
-        <label for="nomVal" class="col-form-label">ValeurNom</label>
-      </div>
-
-      <!-- Prenom -->
-
-      <div class="col-md-1">
-        <label for="nom" class="col-form-label">Prenom</label>
-      </div>
-      <div class="col-md-11">
-        <label for="nomVal" class="col-form-label">ValeurPreNom</label>
-      </div>
-
-      <!-- Adresse -->
-
-      <div class="col-md-1">
-        <label for="nom" class="col-form-label">Adresse</label>
-      </div>
-      <div class="col-md-11">
-        <label for="nomVal" class="col-form-label">12 rue des champs</label>
-      </div>
-
+  <mat-card-content>
+    <div style="display: flex;">
+      <label style="flex-grow: 1;">Nom: {{nom}}</label>
+      <label style="flex-grow: 1;">Prenom: {{prenom}}</label>
     </div>
-</div>
+
+
+    <!-- Adresse -->
+    <mat-divider></mat-divider>
+    <div style="display: flex;">
+      <label style="flex-grow: 1;">Rue: {{adresse_rue}}</label>
+    </div>
+    <mat-divider></mat-divider>
+    <div style="display: flex;">
+      <label style="flex-grow: 1;">Code Postal: {{cp}}</label>
+      <label style="flex-grow: 1;">Ville: {{adresse_ville}}</label>
+    </div>
+    <mat-divider></mat-divider>
+
+  </mat-card-content>
+</mat-card>

@@ -23,4 +23,8 @@ export class DataServiceService {
   getPatients() {
     return this.http.get(environment.baseUrl + 'patient');
   }
+
+  createObs(data: Object) {
+    this.http.post(environment.baseUrl + 'observation', data);
+  }
 }
