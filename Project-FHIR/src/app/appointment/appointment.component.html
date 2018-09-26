@@ -5,10 +5,24 @@
         <th>Title</th>
         <th>Commence à</th>
         <th>Finit à</th>
+        <th>Réponse</th>
       </tr>
     </thead>
     <tbody>
-    
+
+            <tr *ngFor="let rdv of appointmentsArray">
+                <td>Rendez-vous avec XXX</td>
+                <td>ValeurDeb</td>
+                <td>ValeurFin</td>
+                <td>
+                  <div class="col-md-3">
+                    <button type="button" class="btn btn-primary">Valider</button>
+                  </div>
+                  <div class="col-md-2">
+                    <button type="button" class="btn btn-primary">ABS</button>
+                  </div>
+                </td>
+              </tr>
     </tbody>
-  
+
   </table>
