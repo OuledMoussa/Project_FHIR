@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/services/data-service.service';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @Component({
@@ -13,13 +14,20 @@ export class PractitionerComponent implements OnInit {
   data: Object;
   nom: string;
   prenom: string;
-  adresse: string;
+  adresse_rue: string;
+  adresse_ville: string;
+  cp: number;
 
   ngOnInit() {
     this.dataService.getPractData()
     .subscribe((value ) => {
         this.data = value;
         this.nom = value.name[0].family;
+        this.prenom = value.name[0].given;
+        this.adresse_rue = value.address[0].line[0];
+        this.adresse_ville = value.address[0].city;
+        this.cp = value.address[0].postalCode;
+        console.log(value);
     });
   }
 
@@ -27,9 +35,8 @@ export class PractitionerComponent implements OnInit {
   this.dataService.getPractData()
     .subscribe((value ) => {
         this.data = value;
-        this.nom = value.name[0].family;
+        this.nom = value[2].name[0].family;
         /* this.prenom = value.name[0].given; */
-        console.log(value.name[0].family);
     });
   }
 

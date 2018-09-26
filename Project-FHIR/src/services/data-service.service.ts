@@ -22,5 +22,7 @@ export class DataServiceService {
     return this.http.get(environment.baseUrl + 'appointment', {params: this.params});
   }
 
-
+  createObs(data: Object) {
+    this.http.post(environment.baseUrl + 'observation', data);
+  }
 }
