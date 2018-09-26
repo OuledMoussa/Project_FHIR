@@ -8,3 +8,13 @@ body {
   background-size:cover;
 
 }
+
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+.modal-dialog {
+  z-index: 1100 !important;
+}
+.show {
+  opacity: 1;
+}
