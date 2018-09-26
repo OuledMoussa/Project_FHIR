@@ -1,4 +1,4 @@
-<ng-template class="modal" #modalContent let-close="close">
+<ng-template class="mymodal" #modalContent let-close="close">
   <div class="modal-header">
     <h5 class="modal-title">TitreRDV</h5>
     <button type="button" class="close" (click)="close()">
@@ -41,7 +41,7 @@
 <br>
 <br>
 <br>
-<!-- 
+
 <table class="table table-bordered">
 
     <thead>
@@ -55,7 +55,7 @@
     <tbody>
 
             <tr *ngFor="let rdv of appointmentsArray">
-                <td>Rendez-vous avec XXX</td>
+                <td>{{rdv}}</td>
                 <td>ValeurDeb</td>
                 <td>ValeurFin</td>
                 <td>
@@ -70,5 +70,3 @@
     </tbody>
 
   </table>
-
--->

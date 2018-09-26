@@ -49,7 +49,8 @@ export class AppointmentComponent implements OnInit {
   modalContent: TemplateRef<any>;
   appointmentsArray : any;
   
-  constructor(private dataService: DataServiceService, private modal: NgbModal) { }
+  constructor(private dataService: DataServiceService, private modal: NgbModal) { 
+  }
 
   view: CalendarView = CalendarView.Week;
 
@@ -105,7 +106,5 @@ export class AppointmentComponent implements OnInit {
 
         this.appointmentsArray = value });
     }
-
-
     
-  }
+}

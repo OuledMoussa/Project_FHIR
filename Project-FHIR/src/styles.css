@@ -2,17 +2,18 @@
 /* angular-cli file: src/styles.css */
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 
-body {
-
-
-}
-
 .modal-backdrop {
   z-index: 1040 !important;
 }
 .modal-dialog {
   z-index: 1100 !important;
+  top:150px;
 }
 .show {
   opacity: 1;
+}
+.modal-header {
+  padding-top:30px;
+  padding-left:15px;
+  padding-bottom:15px;
 }
