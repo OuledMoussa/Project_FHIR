@@ -13,14 +13,14 @@ export class DataServiceService {
 
 
 
-
   getPractData() {
     return this.http.get(environment.baseUrl + 'practitioner/' + environment.practId);
   }
 
   getAppointment() {
-    return this.http.get(environment.baseUrl + 'appointment', {params: this.params});
+    return this.http.get(environment.baseUrl + 'appointment?' + this.params);
   }
-
-
+  getPatients() {
+    return this.http.get(environment.baseUrl + 'patient');
+  }
 }
