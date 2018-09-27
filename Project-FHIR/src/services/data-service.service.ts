@@ -25,6 +25,9 @@ export class DataServiceService {
   getAppointment() {
     return this.http.get<any>(environment.baseUrl + 'appointment?' + this.params);
   }
+  getPatientID(id: string) {
+    return this.http.get<any>(environment.baseUrl + id);
+  }
   getPatients() {
     return this.http.get<any>(environment.baseUrl + 'patient');
   }

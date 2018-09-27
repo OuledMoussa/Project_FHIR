@@ -48,6 +48,7 @@ export class AppointmentComponent implements OnInit {
   @ViewChild('modalContent')
   modalContent: TemplateRef<any>;
   appointmentsArray : any;
+  patientArray : any;
   
   constructor(private dataService: DataServiceService, private modal: NgbModal) { 
   }
@@ -61,10 +62,6 @@ export class AppointmentComponent implements OnInit {
   modalData: {
     action: string;
     event: CalendarEvent;
-    comment: string;
-    id: string;
-    participant: any;
-    priority: number;
   };
 
   actions: CalendarEventAction[] = [
@@ -77,7 +74,6 @@ export class AppointmentComponent implements OnInit {
 
   addInCalendar(){
     for(let rdv of this.appointmentsArray){
-      console.log(rdv);
       var myevent = {      start: new Date(rdv['start']),
       end: new Date(rdv['end']),
       title: rdv['description'],
@@ -85,7 +81,6 @@ export class AppointmentComponent implements OnInit {
       actions: this.actions,
       comment: rdv['comment'],
       id: rdv['id'],
-      patientRef: rdv['participant'][0]['actor']['reference'],
       patientNom: rdv['participant'][0]['actor']['display'],
       priority: rdv['priority']
       };
@@ -111,6 +106,8 @@ export class AppointmentComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
+    //Genere une erreur mais fonctionne
+    // Due au handlerEvevent dans le html 
     this.modalData = { event, action};
     this.modal.open(this.modalContent, { size: 'lg' });
   }
@@ -121,7 +118,7 @@ export class AppointmentComponent implements OnInit {
 
         this.appointmentsArray = value;
         this.addInCalendar();
-        console.log(value);
+
       });
     
     }
