@@ -61,6 +61,10 @@ export class AppointmentComponent implements OnInit {
   modalData: {
     action: string;
     event: CalendarEvent;
+    comment: string;
+    id: string;
+    participant: any;
+    priority: number;
   };
 
   actions: CalendarEventAction[] = [
@@ -69,15 +73,26 @@ export class AppointmentComponent implements OnInit {
 
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [
-    {
-      start: new Date('2018-09-25T07:00:00'),
-      end: new Date('2018-09-25T09:00:00'),
-      title: 'An Exemple of Appoitment',
+  events: CalendarEvent[] = [];
+
+  addInCalendar(){
+    for(let rdv of this.appointmentsArray){
+      console.log(rdv);
+      var myevent = {      start: new Date(rdv['start']),
+      end: new Date(rdv['end']),
+      title: rdv['description'],
       color: colors.red,
-      actions: this.actions
+      actions: this.actions,
+      comment: rdv['comment'],
+      id: rdv['id'],
+      patientRef: rdv['participant'][0]['actor']['reference'],
+      patientNom: rdv['participant'][0]['actor']['display'],
+      priority: rdv['priority']
+      };
+      this.events.push(myevent);
     }
-  ];
+    this.refresh.next();
+  }
 
   activeDayIsOpen: boolean = true;
 
@@ -96,7 +111,7 @@ export class AppointmentComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
+    this.modalData = { event, action};
     this.modal.open(this.modalContent, { size: 'lg' });
   }
 
@@ -104,7 +119,11 @@ export class AppointmentComponent implements OnInit {
   ngOnInit(){
     this.dataService.getAppointment().subscribe((value) => {
 
-        this.appointmentsArray = value });
+        this.appointmentsArray = value;
+        this.addInCalendar();
+        console.log(value);
+      });
+    
     }
     
 }
