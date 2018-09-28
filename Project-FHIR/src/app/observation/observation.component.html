@@ -9,14 +9,14 @@
           <mat-expansion-panel-header>
             Catégories
           </mat-expansion-panel-header>
-          <mat-button-toggle-group #group="matButtonToggleGroup" [formControl]="catControl" required>
-            <mat-button-toggle value="tryg" (change)="showGroup('tryg')">
+          <mat-button-toggle-group #group="matButtonToggleGroup" [formControl]="catControl" style="display: flex; justify-content:space-around;" required>
+            <mat-button-toggle value="tryg" style="flex-grow: 1;" (change)="showGroup('tryg')">
               Triglycéride
             </mat-button-toggle>
-            <mat-button-toggle value="gen" (change)="showGroup('gen')">
+            <mat-button-toggle value="gen" style="flex-grow: 1;" (change)="showGroup('gen')">
               Observation-Genetics
             </mat-button-toggle>
-            <mat-button-toggle value="chol" (change)="showGroup('chol')">
+            <mat-button-toggle value="chol" style="flex-grow: 1;" (change)="showGroup('chol')">
               Cholésterol
             </mat-button-toggle>
           </mat-button-toggle-group>
@@ -30,13 +30,13 @@
             </mat-button-toggle>
           </mat-button-toggle-group>
 
-          <mat-button-toggle-group #tryg="matButtonToggleGroup" *ngIf="checker==1">
+          <mat-button-toggle-group #tryg="matButtonToggleGroup" *ngIf="checker==1" style="display: flex; justify-content:space-around;">
             <mat-button-toggle value="14927-8" (change)="setValueCode('14927-8')">
               Triglyceride [Moles/?volume] in Serum or Plasma
             </mat-button-toggle>
           </mat-button-toggle-group>
 
-          <mat-button-toggle-group #gen="matButtonToggleGroup" *ngIf="checker==3">
+          <mat-button-toggle-group #gen="matButtonToggleGroup" *ngIf="checker==3" style="display: flex; justify-content:space-around;">
             <mat-button-toggle value="55233-1" (change)="setValueCode('55233-1')">
               Genetic analysis master panel
             </mat-button-toggle>
