@@ -11,7 +11,8 @@
     <p>Contact : {{modalData?.event.addr}}</p>
     <p>Priorité :  {{modalData?.event.priority}}</p>
     <p>Détail :  {{modalData?.event.comment}}</p>
-    <p>Début : {{modalData?.event.start}} - Fin : {{modalData?.event.end}}</p>
+    <p>Début : {{modalData?.event.start | date:'dd/MM'}} à {{modalData?.event.start | date:'hh:mm'}}</p>
+    <p>Fin : {{modalData?.event.end | date:'dd/MM'}} à {{modalData?.event.end | date:'hh:mm'}}</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-secondary" (click)="close()">OK</button>
@@ -46,7 +47,7 @@
 <br>
 <br>
 <br>
-<!-- 
+<!--
 <table class="table table-bordered">
 
     <thead>
