@@ -1,6 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy,
+import {
+  Component, OnInit, ChangeDetectionStrategy,
   ViewChild,
-  TemplateRef } from '@angular/core';
+  TemplateRef
+} from '@angular/core';
 import { DataServiceService } from '../../services/data-service.service';
 
 
@@ -47,9 +49,9 @@ const colors: any = {
 export class AppointmentComponent implements OnInit {
   @ViewChild('modalContent')
   modalContent: TemplateRef<any>;
-  appointmentsArray : any;
-  
-  constructor(private dataService: DataServiceService, private modal: NgbModal) { 
+  appointmentsArray: any;
+
+  constructor(private dataService: DataServiceService, private modal: NgbModal) {
   }
 
   view: CalendarView = CalendarView.Week;
@@ -101,10 +103,11 @@ export class AppointmentComponent implements OnInit {
   }
 
 
-  ngOnInit(){
+  ngOnInit() {
     this.dataService.getAppointment().subscribe((value) => {
 
-        this.appointmentsArray = value });
-    }
-    
+      this.appointmentsArray = value
+    });
+  }
+
 }

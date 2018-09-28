@@ -29,29 +29,30 @@ export class ObservationComponent implements OnInit {
 
   newObs = {
     'id': null,
+    'text': {
+      'status': 'generated',
+      'div': ''
+    },
     'resourceType': 'Observation',
     'status': 'final',
-    'comment': '',
     'code': {
       'coding': [
         {
           'system': 'http://loinc.org',
           'code': null,
-          'display': null
+          'display': ''
         }
       ],
       'text': ''
     },
     'subject': {
-/*         'reference': 'Patient/5ba8b75b2eef950010bbb5b1'
- */        'reference': ''
+        'reference': ''
     },
-/*     'issued': '2013-04-03T15:30:10+01:00',
- */    'issued': '',
+   'issued': '',
     'performer': [
       {
         'reference': null,
-        'display': null
+        'display': ''
       }
     ],
     'component': [
@@ -68,7 +69,7 @@ export class ObservationComponent implements OnInit {
         'referenceRange': [
           {
             'high': {
-              'value': '',
+              'value': 0.5,
               'unit': 'mmol/L',
               'system': 'http://unitsofmeasure.org',
               'code': 'mmol/L'
@@ -87,11 +88,9 @@ export class ObservationComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getPatients().subscribe((value) => {
-      // console.log(value);
       this.patientsArray = value;
     });
 
-    // this.createObs();
   }
 
 
@@ -102,18 +101,18 @@ export class ObservationComponent implements OnInit {
   }
 
   createObs() {
-    // this.newObs.component[0].code.coding[0].code = selected.value();
-    this.newObs.id = this.getRandID();
+    this.newObs.id = this.getRandID().toString();
     const now = new Date();
     this.newObs.issued = now.toISOString();
     this.newObs.subject.reference = 'Patient/' + this.patientControl.value;
     this.newObs.performer[0].reference = 'Practitioner/' + environment.practId;
-    this.newObs.comment = this.commentaryControl.value;
+    this.newObs.text.div = this.commentaryControl.value;
     this.newObs.code.coding[0].code = this.codeValue;
     this.dataService.createObs(this.newObs);
+    console.log(this.newObs);
   }
   setValueCode(value: any) {
-    this.codeValue= value;
+    this.codeValue = value;
   }
 
   showGroup(x) {
