@@ -17,3 +17,6 @@
   padding-left:15px;
   padding-bottom:15px;
 }
+td {
+  border: solid 1px black;
+}

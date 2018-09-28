@@ -1,0 +1,9 @@
+<table style="width:100%">
+<tr *ngFor="let obs of data; let i = index">
+  <td>Observation n° {{ i + 1 }}</td>
+  <td>Patient: {{ obs.subject.reference }}</td>
+  <td>Code: {{ obs.code.coding[0].display }}</td>
+  <td>Date: {{ obs.effectiveDateTime | date:'dd/MM' }}</td>
+  <td [innerHTML]="obs.text.div"></td>
+</tr>
+</table>

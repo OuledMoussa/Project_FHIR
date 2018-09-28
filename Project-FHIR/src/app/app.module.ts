@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PractitionerComponent } from './practitioner/practitioner.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { ObservationComponent } from './observation/observation.component';
+import { ObservationsComponent } from './observations/observations.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MatCardModule } from '@angular/material/card';
@@ -29,7 +30,8 @@ import { Observable } from 'rxjs';
 const appRoutes: Routes = [
   { path: 'pract', component: PractitionerComponent },
   { path: 'obs', component: ObservationComponent },
-  { path: 'appoint', component: AppointmentComponent }
+  { path: 'appoint', component: AppointmentComponent },
+  { path: 'obss', component: ObservationsComponent }
 ];
 
 @NgModule({
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     AppComponent,
     PractitionerComponent,
     AppointmentComponent,
-    ObservationComponent
+    ObservationComponent,
+    ObservationsComponent
   ],
   imports: [
     NgbModule,

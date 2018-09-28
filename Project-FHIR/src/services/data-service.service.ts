@@ -14,6 +14,7 @@ export class DataServiceService {
   constructor(private http: HttpClient) { }
 /*   params = new HttpParams().append('participant.actor.reference', 'Patient/5ba8b75b2eef950010bbb5b1');
  */  params = new HttpParams().append('participant.actor.reference', 'Practitioner/5ba8b7742eef950010bbb5b3');
+ paramsObs = new HttpParams().append('performer.reference', 'Practitioner/5ba8b7742eef950010bbb5b3');
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -27,6 +28,9 @@ export class DataServiceService {
 
   getAppointment() {
     return this.http.get<any>(environment.baseUrl + 'appointment?' + this.params);
+  }
+  getObs() {
+    return this.http.get<any>(environment.baseUrl + 'observation?' + this.paramsObs);
   }
   getPatientID(id: string) {
     return this.http.get<any>(environment.baseUrl + id);
