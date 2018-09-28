@@ -16,3 +16,11 @@
 .example-selected-value {
   margin: 15px 0;
 }
+
+mat-button-toggle:hover {
+  background-color: #c5d2e8;
+}
+
+mat-button-toggle:active {
+  background-color: #9fa5ad;
+}

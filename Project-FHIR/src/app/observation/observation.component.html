@@ -1,15 +1,16 @@
 <form>
-    <div class="form-group wrapper">
-      <div class="one">
+  <div class="form-group wrapper" style="display: flex; justify-content:space-around;">
+    <div class="one" style="flex-grow: 1;">
       <select id="patientID" [formControl]="patientControl" required>
-        <option  *ngFor="let pat of patientsArray" [value]="pat.id" >{{pat.name[0].family}} {{pat.name[0].given[0]}}</option>
+        <option *ngFor="let pat of patientsArray" [value]="pat.id">{{pat.name[0].family}} {{pat.name[0].given[0]}}</option>
       </select>
       <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             Catégories
           </mat-expansion-panel-header>
-          <mat-button-toggle-group #group="matButtonToggleGroup" [formControl]="catControl" style="display: flex; justify-content:space-around;" required>
+          <mat-button-toggle-group #group="matButtonToggleGroup" [formControl]="catControl" style="display: flex; justify-content:space-around;"
+            required>
             <mat-button-toggle value="tryg" style="flex-grow: 1;" (change)="showGroup('tryg')">
               Triglycéride
             </mat-button-toggle>
@@ -47,10 +48,10 @@
         </mat-expansion-panel>
       </mat-accordion>
     </div>
-    <div class="two">
+    <div class="two" style="flex-grow: 1;">
       <label for="exampleFormControlTextarea1">Commentaire</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" [formControl]="commentaryControl"></textarea>
     </div>
-    </div>
-    <button type="button" class="btn btn-primary" (click)="createObs()" >Valider</button>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="createObs()">Valider</button>
 </form>
